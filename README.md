@@ -157,13 +157,3 @@ ai-devops-assistant/
 | Local LLMs | Ollama inference server |
 | Python | Full-stack backend |
 | UI development | Streamlit dashboard |
-
----
-
-## Resume Description
-
-> Built an AI-powered DevOps Incident Resolution Assistant using Streamlit,
-> Ollama (Llama3), LangChain, LangGraph, and ChromaDB. Implemented a
-> multi-agent RAG system with specialized Kubernetes, Docker, and CI/CD
-> agents, semantic document retrieval.
-> Runs fully locally with no API keys or cloud dependency.
