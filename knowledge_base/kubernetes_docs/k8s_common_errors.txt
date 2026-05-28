@@ -1,0 +1,21 @@
+CrashLoopBackOff:
+A pod enters CrashLoopBackOff when it crashes repeatedly. Kubernetes tries to restart it but keeps failing.
+Common causes: application errors, missing environment variables, wrong image tag, insufficient memory.
+Fix: kubectl logs <pod-name> --previous to see last crash logs. Check resource limits. Verify env vars.
+
+OOMKilled:
+Pod was killed by the Linux Out-Of-Memory killer because it exceeded its memory limit.
+Fix: Increase memory limit in the pod spec. Check for memory leaks in the application.
+kubectl describe pod <pod-name> to confirm OOMKilled exit code 137.
+
+ImagePullBackOff:
+Kubernetes cannot pull the container image. Either the image does not exist or credentials are wrong.
+Fix: Check image name and tag. Verify imagePullSecrets. Check if registry is accessible.
+
+Pending Pod:
+Pod is stuck in Pending state. Common cause: insufficient CPU or memory on nodes, or no matching node selector.
+Fix: kubectl describe pod <pod-name> to see events. Check node resources with kubectl describe nodes.
+
+Service Unavailable:
+If a Service has no Endpoints it means no pods match its selector.
+Fix: kubectl get endpoints <service-name>. Verify pod labels match service selector exactly.

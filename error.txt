@@ -1,0 +1,4 @@
+pod/payment-service-6d8f9 CrashLoopBackOff
+Exit Code: 137 OOMKilled
+Memory limit 256Mi exceeded
+Restarted 12 times

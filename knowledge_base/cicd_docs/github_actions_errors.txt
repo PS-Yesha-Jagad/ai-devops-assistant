@@ -1,0 +1,19 @@
+Actions Runner Offline:
+Self-hosted runner is not connected. Workflow queues but never starts.
+Fix: Check runner machine is online. Restart runner service: ./run.sh or services panel.
+
+npm Test Failure:
+Test suite fails with "command not found" or dependency errors.
+Fix: Ensure node_modules is cached. Add: cache: npm in the setup-node action. Check Node version.
+
+Docker Build Push Failure in CI:
+Authentication fails when pushing to Docker Hub or ECR.
+Fix: Add DOCKER_USERNAME and DOCKER_PASSWORD as GitHub Secrets. Use docker/login-action.
+
+Workflow Timeout:
+Job exceeds the 6-hour timeout. Usually caused by a stuck process or infinite loop.
+Fix: Add timeout-minutes to each job. Use set -e in shell scripts. Check for interactive prompts.
+
+Environment Variable Missing:
+Application fails because required env var is not set.
+Fix: Add env vars under env: key in workflow or use GitHub Secrets via ${{ secrets.MY_SECRET }}.

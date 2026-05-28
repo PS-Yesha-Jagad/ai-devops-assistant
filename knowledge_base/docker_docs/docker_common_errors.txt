@@ -1,0 +1,19 @@
+Container OOM Killed:
+Docker container was killed because it exceeded its memory limit.
+Fix: docker stats to check memory usage. Increase --memory flag or fix memory leak.
+
+Image Build Failure:
+Build fails due to network issues, missing files, or wrong base image.
+Fix: Check Dockerfile syntax. Ensure build context has all required files. Check internet access.
+
+Port Already in Use:
+Container fails to start because the host port is already bound.
+Fix: docker ps to find conflicting container. Change port mapping or stop conflicting container.
+
+Container Keeps Restarting:
+Container exits immediately after start. Usually caused by entrypoint error or missing dependency.
+Fix: docker logs <container-id> --tail 50. Run container interactively: docker run -it <image> /bin/sh
+
+Volume Mount Permission Error:
+Application cannot read or write mounted volume.
+Fix: Check volume ownership. Use --user flag or fix permissions with chmod inside the container.
